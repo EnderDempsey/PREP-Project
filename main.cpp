@@ -3,6 +3,8 @@
 using namespace std;
 #include <fstream>
 #include <cmath>
+#include <vector>
+#include <array>
 
 #include "GetStandardDeviations.h"
 
@@ -11,13 +13,22 @@ int main(){
 
     ifstream readFile;
     readFile.open("Portfolios_Formed_on_ME_daily 4.csv");
-
-    //output standard deviations by year
+    ofstream out("deviations.csv");
+    prepOutFile(out);
+    array<double,10> yearI;
+    //Get a list of a list of standard deviations for a year for each decile
     if (getToData(readFile)){
-        stdevYears(readFile);
+        for(int i=1927; i<=2025; i++){
+            yearI = stdevYears(readFile, i);
+            addToFile(out, yearI, i);
+        }
     }
 
-    //close file
+    
+
+
+    //close files
     readFile.close();
+    out.close();
     return 0;
 }
