@@ -9,11 +9,9 @@ using namespace std;
 //Get standard deviations for each year from 1927-2025 (inclusive)
 //Get stdevs for every year for every decile and quartile
         bool getToData(ifstream&);
-        array<double,10> stdevYears(ifstream&, int);
-        double stdevDeciles(ifstream&);
-        double stdevQuartiles(ifstream&);
+        array<double,10> stDevsByYearsForEachDecile(ifstream&, int);
         double getStdevOfList(vector<double>);
-        void prepOutFile(ostream&);
+        void prepOutFile(ostream&, string);
         void addToFile(ostream&, array<double,10>, int year);
 
 #endif

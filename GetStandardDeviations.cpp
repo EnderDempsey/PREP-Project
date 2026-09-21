@@ -15,7 +15,7 @@ bool getToData(ifstream& readFile){
     return true;
 }
 
-array<double,10> stdevYears(ifstream& readFile, int wantedYear){
+array<double,10> stDevsByYearsForEachDecile(ifstream& readFile, int wantedYear){
     string s;
     int year;
     double v;
@@ -53,13 +53,14 @@ array<double,10> stdevYears(ifstream& readFile, int wantedYear){
             getline(readFile, s, ',');
             year = stoi(s); year = year/10000;
         }
-        //Now, we are at the 1927 part of the code
+        //Now, we are at the desired year part of the data set
 
         while (year == wantedYear){
-            //Gets to 10-Dec
+            //Gets to Low10 Decile
             for (int k=1; k<=9; k++){
                 getline(readFile, s, ',');
             }
+            //Loops through each decile value in a year
             for (int j=0; j<10; j++){
                 //Gets to value
                 for (int l=1; l<=3; l++){
@@ -70,43 +71,36 @@ array<double,10> stdevYears(ifstream& readFile, int wantedYear){
                 } else {
                     getline(readFile, s);
                 }
-                //cout << s << endl;
                 v = stod(s);
+                //Checking for missing data
                 if (!(v==-999 || v==-99.99)){
                     YearIDec[j].push_back(v);
                 }
             }
+            //Gets the year of the next line
             getline(readFile, s, ',');
             year = stoi(s); year = year/10000;
         }
         for (int i=0; i<10; i++){
             stdevs[i] = getStdevOfList(YearIDec[i]);
         }
-        //cout << endl << "ST DEV IS " << stdev << endl;
         break;
     }
     return stdevs;
 }
 
-//The code in this function was adapted from
-//code from https://www.geeksforgeeks.org/cpp/cpp-program-to-find-the-standard-deviation-of-array-elements/
+//The code in this function was adapted from code from
+//https://www.geeksforgeeks.org/cpp/cpp-program-to-find-the-standard-deviation-of-array-elements/
 double getStdevOfList(vector<double> list){
     double sum, mean, standardDeviation = 0.0;
-
     int size = list.size();
-    //cout << endl << "SIZE IS " << size<< endl;
-
     // Calculate the sum of elements in the vector
     for (int i = 0; i < size; ++i) {
         sum += list[i];
     }
-
     // Calculate the mean
     mean = sum / size;
-    //cout << endl << "MEAN IS " << mean << endl;
-
-    // Calculate the sum of squared differences from the
-    // mean
+    // Calculate the sum of squared differences from the mean
     for (int i = 0; i < size; ++i) {
         standardDeviation += pow(list[i] - mean, 2);
     }
@@ -117,8 +111,9 @@ double getStdevOfList(vector<double> list){
     return sqrt(standardDeviation / size);
 }
 
-void prepOutFile(ostream& out){
-    out << "Standard deviations by year for each decile" << endl << endl;
+void prepOutFile(ostream& out, string dataSet){
+    out << "Standard Deviations by Year for Each Decile" << endl; 
+    out << endl;
     out << "Year, Lo 10, Dec 2, Dec 3, Dec 4, Dec 5, Dec 6, Dec 7, Dec 8, Dec 9, Hi 10" << endl;
 }
 

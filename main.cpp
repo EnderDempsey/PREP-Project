@@ -9,25 +9,23 @@ using namespace std;
 #include "GetStandardDeviations.h"
 
 int main(){
-    //open file
-
+    //File handling
     ifstream readFile;
-    readFile.open("Portfolios_Formed_on_ME_daily 4.csv");
-    ofstream out("deviations.csv");
-    prepOutFile(out);
+    readFile.open("Portfolios_Formed_on_ME_Daily.csv");
+    ofstream out("StDevsForPortfoliosFormedOnSizeDaily.csv");
+    prepOutFile(out,"Portfolios_Formed_on_ME_daily");
+
     array<double,10> yearI;
+
     //Get a list of a list of standard deviations for a year for each decile
     if (getToData(readFile)){
         for(int i=1927; i<=2025; i++){
-            yearI = stdevYears(readFile, i);
+            yearI = stDevsByYearsForEachDecile(readFile, i);
             addToFile(out, yearI, i);
         }
     }
 
-    
-
-
-    //close files
+    //Close files
     readFile.close();
     out.close();
     return 0;
