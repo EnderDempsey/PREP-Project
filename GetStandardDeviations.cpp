@@ -72,7 +72,9 @@ array<double,10> stdevYears(ifstream& readFile, int wantedYear){
                 }
                 //cout << s << endl;
                 v = stod(s);
-                YearIDec[j].push_back(v);
+                if (!(v==-999 || v==-99.99)){
+                    YearIDec[j].push_back(v);
+                }
             }
             getline(readFile, s, ',');
             year = stoi(s); year = year/10000;
