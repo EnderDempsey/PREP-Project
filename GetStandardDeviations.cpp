@@ -7,9 +7,9 @@
 #include <iostream>
 using namespace std;
 
-bool getToData(ifstream& readFile){
+bool getToData(ifstream& readFile, int num){
     string s;
-    for (int i=1; i<=13; i++){
+    for (int i=1; i<=num; i++){
         getline(readFile, s);
     }
     return true;
