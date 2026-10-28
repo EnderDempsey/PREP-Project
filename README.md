@@ -8,3 +8,5 @@ In this project, I calculate the standard deviaions (using the population formul
 Thus, there are 990 standard deviations outputted, organized by year and decile.
 
 The standard deviations are outputted in two csv files called "StDevsForPortfoliosFormedOnSizeDaily" and "StDevsForPortfoliosFormedOnBEtoMEDaily"
+
+I want to recognize my research mentor, Andrey Sarantsev Ph.D.
