@@ -7,6 +7,12 @@
 #include <iostream>
 using namespace std;
 
+<<<<<<< HEAD
+
+openData(ifstream &in){
+    
+}
+=======
 bool getToData(ifstream& readFile, int num){
     string s;
     for (int i=1; i<=num; i++){
@@ -127,3 +133,4 @@ void addToFile(ostream& out, array<double,10> yearI, int year){
     }
     out << endl;
 }
+>>>>>>> 69ddbb647d09bc8fb271153676f29055f48e4eb0

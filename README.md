@@ -1,6 +1,6 @@
 # PREP-Project
 
-Unless otherwise stated, all code in this repository was done alone by Ender Dempsey. No generative AI was used in this project.
+Unless otherwise stated, all code in this repository was done alone by Ender Dempsey under the mentorship of Andrey Sarantsev. No generative AI was used in this project.
 
 The data sets used in this project come from https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/data_library.html.
 In particular, this project uses the Portfolios Formed On Size [Daily] and Portfolios Formed on BE-ME [Daily] csv files.

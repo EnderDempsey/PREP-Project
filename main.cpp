@@ -7,6 +7,7 @@ using namespace std;
 #include <array>
 
 #include "GetStandardDeviations.h"
+#include "PCA.cpp"
 
 int main(){
     //File handling
