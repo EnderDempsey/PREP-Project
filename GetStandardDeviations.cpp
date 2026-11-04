@@ -6,13 +6,7 @@
 #include <array>
 #include <iostream>
 using namespace std;
-
-<<<<<<< HEAD
-
-openData(ifstream &in){
-    
-}
-=======
+/*
 bool getToData(ifstream& readFile, int num){
     string s;
     for (int i=1; i<=num; i++){
@@ -25,7 +19,7 @@ array<double,10> stDevsByYearsForEachDecile(ifstream& readFile, int wantedYear){
     string s;
     int year;
     double v;
-    double stdev;
+    //double stdev;
     array<double,10> stdevs;
     //Creates a series of vectors representing each decile for the year
         vector<double> Year1Dec;
@@ -122,7 +116,7 @@ void prepOutFile(ostream& out, string dataSet){
     out << endl;
     out << "Year, Lo 10, Dec 2, Dec 3, Dec 4, Dec 5, Dec 6, Dec 7, Dec 8, Dec 9, Hi 10" << endl;
 }
-
+/*
 void addToFile(ostream& out, array<double,10> yearI, int year){
     out << year << ",   ";
     for (int i = 0; i<10; i++){
@@ -132,5 +126,4 @@ void addToFile(ostream& out, array<double,10> yearI, int year){
         }
     }
     out << endl;
-}
->>>>>>> 69ddbb647d09bc8fb271153676f29055f48e4eb0
+}*/
